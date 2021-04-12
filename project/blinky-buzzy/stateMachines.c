@@ -36,7 +36,7 @@ char toggle_green()
   return changed;
 }
 
-void state_blink(){
+void lol(){
   char changed = 0;
 
   static enum {R=0, G=1}
@@ -53,9 +53,34 @@ void state_blink(){
   }
 
   led_changed = changed;
-  led_update();
 }
 
 void play_tone(){
   buzzer_set_period(2217);
+}
+void play_another_tone(){
+  buzzer_set_period(1040);
+}
+
+void state_blink(){
+  char changed = 0;
+
+
+
+  static enum {R=0, G=1} color = G;
+
+  switch (color) {
+
+  case R: changed = toggle_red(); color = G; break;
+
+  case G: changed = toggle_green(); color = R; break;
+
+  }
+
+
+
+  led_changed = changed;
+
+  led_update();
+   
 }
