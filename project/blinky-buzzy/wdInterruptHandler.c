@@ -9,17 +9,18 @@
 void __interrupt_vec(WDT_VECTOR) WDT(){/* 250 interrupts/sec */
   static char blink_count = 0;
   if (++blink_count == 125) { //Every half a second
-    if(switch_state == 1){ //Music is played
+    if(switch_state == 1){ //tone is played
        play_tone();
+       // state_blink();
     }
     if(switch_state == 2){
-      state_blink();
+      play_another_tone();
     }
     if(switch_state == 3){
-      stop();
+      state_blink();
     }
     if(switch_state == 4){
-      state_blink();
+      stop();
     }
     blink_count = 0;
 
