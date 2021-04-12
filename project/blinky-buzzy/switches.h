@@ -1,7 +1,7 @@
 #ifndef switches_included
 #define switches_included
 
-#define SW1 BIT0/* switch1-> p1.0*/
+#define SW1 BIT0/* switch1-> p2.0*/
 #define SW2 BIT1
 #define SW3 BIT2
 #define SW4 BIT3
@@ -12,7 +12,7 @@ void switch_init();
 
 void switch_interrupt_handler();
 
-extern char switch_state_down, switch_state_changed;
+extern char switch_state_down, switch_state_changed,switch_state,switch_state_down2,switch_state_down3,switch_state_down4;
 /* effectively boolean */
 
 #endif 
